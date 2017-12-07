@@ -1,11 +1,11 @@
 properties([
            [$class: 'GithubProjectProperty',
           displayName: '',
-          projectUrlStr: 'https://github.com/demo-org-project/test.git'],
+          projectUrlStr: 'https://github.com/anirudh-org/project-test.git'],
           pipelineTriggers([
           upstream(
            threshold: 'SUCCESS',
-            upstreamProjects: 'https://github.com/demo-org-project/compile'    )])
+            upstreamProjects: 'https://github.com/anirudh-org/poject-compile.git'    )])
    ])
 
 pipeline {
