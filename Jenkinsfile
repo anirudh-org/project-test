@@ -1,9 +1,12 @@
-#!/usr/bin/env groovy
 properties([
-    [$class: 'GithubProjectProperty',
-    displayName: '',
-    projectUrlStr: 'https://github.com/VeridicSolutions99/Veridic_Atlanta.git/'],
-    pipelineTriggers([githubPush()])])
+           [$class: 'GithubProjectProperty',
+          displayName: '',
+          projectUrlStr: 'https://github.com/demo-org-project/test.git'],
+          pipelineTriggers([
+          upstream(
+           threshold: 'SUCCESS',
+            upstreamProjects: 'https://github.com/demo-org-project/compile'    )])
+   ])
 
 pipeline {
     agent any 
@@ -14,7 +17,7 @@ pipeline {
                 sh 'pwd' 
             }
         }
-        stage('Test'){
+     stage('Test'){
             steps {
                 sh 'java -version'
                 
